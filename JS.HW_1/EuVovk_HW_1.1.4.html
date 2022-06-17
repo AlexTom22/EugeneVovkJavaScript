@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Ages</title>
+</head>
+<body>
+<script>
+    
+    let age_1 = prompt('Enter three ages.\nFirst:', '');
+    let age_2 = prompt('Enter three ages.\nSecond:', '');
+    let age_3 = prompt('Enter three ages.\nThird:', '');
+
+    console.log(ages(age_1, age_2, age_3));
+
+    function ages(age_1, age_2, age_3) {
+        let age;
+        age_1 = intValid(age_1);
+        age_2 = intValid(age_2);
+        age_3 = intValid(age_3);
+
+        if (typeof (age_1) == "number"
+            && typeof (age_2) == "number"
+            && typeof (age_3) == "number") {
+            if (age_1 == 10) {
+                age = 'age_1 equals 10.';
+            } else {
+                age = 'age_1 doesn\'t equal 10.';
+            }
+            if (age_1 < age_2) {
+                age += '\nYou don’t have access cause your age is ' + age_1
+                    + '. It’s less then ' + age_2 + '.';
+            } else if (age_1 >= age_2 && age_1 < age_3) {
+                age += '\nWelcome  !';
+            } else if (age_1 > age_3) {
+                age += '\nKeep calm and look Culture channel.';
+            } else {
+                age += '\nTechnical work.';
+            }
+        } else {
+            return new Error('This function takes only positive numbers !');
+        }
+        return age;
+    }
+
+    function intValid(age) {
+        const negativError = new Error('This function takes only positive numbers !');
+        let array = new Array();
+
+        if (typeof (age) == 'string') {
+            array = age.trim().split('');
+            for (let i = 0; i < array.length; i++) {
+                if (Number.isNaN(parseInt(array[i]))) {
+                    return negativError;
+                }
+            }
+        }
+        return parseInt(age) > 0 ? parseInt(age) : negativError;
+    }
+</script>
+</body>
+</html>
