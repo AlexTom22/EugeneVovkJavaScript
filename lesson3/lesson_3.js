@@ -114,7 +114,7 @@ let wood = new yolochka_pro();
 wood.method_1();
 wood.method_2(10, 20, yolochka_1);
 
-// ---------Тернарный оператор-----------------------------
+// -----------Тернарный оператор-----------------------------
 const item = 7;
 let f3 = (item > 10)
     ? (a, b) => console.log(a + b)
